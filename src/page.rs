@@ -1,29 +1,26 @@
 use crate::cookie::Cookie;
 
 #[derive(Default, Debug)]
-#[allow(unused)]
 pub struct Page {
-    length: usize,
-    offset: Vec<u32>,
+    pub length: usize,
+    pub offset: Vec<u32>,
     cookies: Vec<Cookie>,
 }
 
 impl Page {
-
     pub fn new(length: usize, offset: Vec<u32>) -> Self {
         Self {
             length,
             offset,
-            cookies: vec![]
+            cookies: vec![],
         }
     }
 
     pub fn mut_cookies(&mut self) -> &mut Vec<Cookie> {
-        return &mut self.cookies
+        return &mut self.cookies;
     }
 
     pub fn cookies(&self) -> &Vec<Cookie> {
-        return &self.cookies
+        return &self.cookies;
     }
-
 }
