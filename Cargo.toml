@@ -1,13 +1,13 @@
 [package]
 name = "binarycookies"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["JohnnyLeaf <fxtafreeman@163.com>"]
 description = "A package reader for Mac os cookie file"
 readme = "README.md"
 keywords = ["cookies", "macos", "cookies", "binarycookies"]
 repository = "https://github.com/findre/binarycookies-reader"
-license = "MIT OR Apache-2.0"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
