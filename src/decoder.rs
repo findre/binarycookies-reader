@@ -1,3 +1,4 @@
+use std::{fs::File, io::Read};
 use crate::{
     page::Page, 
     cookie::Cookie, 
@@ -14,6 +15,22 @@ pub struct BinaryCookiesReader {
 }
 
 impl BinaryCookiesReader {
+
+    pub fn new(target: &String) -> Result<Self, BinaryCookieError> {
+        let mut target_file = File::open(target)?;
+        let mut data = vec![];
+        let _ = target_file.read_to_end(&mut data)?;
+        Ok(
+            Self { 
+                cookie_size: 0, 
+                bits_offset: 0, 
+                data, 
+                pages_size: vec![], 
+                pages_data: vec![], 
+                check_sum: [0; 8] 
+            }
+        )
+    }
     
     pub fn from_vec(target: &Vec<u8>) -> Self {
         let mut data = Vec::<u8>::with_capacity(target.len());
