@@ -6,7 +6,7 @@ authors = ["JohnnyLeaf <fxtafreeman@163.com>"]
 description = "A package reader for Mac os cookie file"
 readme = "README.md"
 keywords = ["cookies", "macos", "mac cookie", "binarycookies"]
-
+repository = "https://github.com/findre/binarycookies-reader"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
