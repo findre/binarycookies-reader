@@ -2,6 +2,7 @@ use std::{fmt::Display, error::Error, io::Error as IoError};
 
 #[derive(Debug)]
 pub enum BinaryCookieError {
+    InvalidIndexOverBounds,
     InvalidSignature,
     InvalidStartCode,
     EndCodeError,
@@ -15,6 +16,7 @@ impl Error for BinaryCookieError {}
 impl Display for BinaryCookieError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
+            BinaryCookieError::InvalidIndexOverBounds => write!(f, "index out of bounds, binarycookies format failed"),
             BinaryCookieError::InvalidSignature => write!(f, "signature code is invalid, need 'cook'"),
             BinaryCookieError::InvalidStartCode => write!(f, "start code is invalid, except '0010'"),
             BinaryCookieError::EndCodeError => write!(f, "end code is invalid, need '0000'"),
