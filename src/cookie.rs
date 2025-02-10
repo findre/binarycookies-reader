@@ -2,7 +2,7 @@
 pub struct Cookie {
     pub secure: bool,
     pub http_only: bool,
-	size: u32,
+    size: u32,
     flags: u32,
     domain_offset: u32,
     name_offset: u32,
@@ -12,8 +12,8 @@ pub struct Cookie {
     pub expires: f64,
     pub creation: f64,
     unknown_one: [u8; 4],
-	unknown_two: [u8; 4],
-	value: Vec<u8>,
+    unknown_two: [u8; 4],
+    value: Vec<u8>,
     name: Vec<u8>,
     comment: Vec<u8>,
     domain: Vec<u8>,
@@ -21,11 +21,10 @@ pub struct Cookie {
 }
 
 impl Cookie {
-    
     pub fn init_cookie_size(&mut self, bits: [u8; 4]) {
         self.size = u32::from_le_bytes(bits);
     }
-    
+
     pub fn init_unknown_one(&mut self, bits: [u8; 4]) {
         self.unknown_one = bits
     }
@@ -79,7 +78,7 @@ impl Cookie {
         if bits == [0, 0, 0, 0] {
             return true;
         }
-        return false
+        return false;
     }
 
     pub fn init_page_expires(&mut self, bits: [u8; 8]) {
@@ -101,18 +100,18 @@ impl Cookie {
             self.name_offset - self.domain_offset,
             self.path_offset - self.name_offset,
             self.value_offset - self.path_offset,
-            self.size - self.value_offset
+            self.size - self.value_offset,
         ];
         for value in check {
             if value > 4096 {
-                return true
+                return true;
             };
             total += value;
-        };
-        if total > 4096 {
-            return true
         }
-        return false
+        if total > 4096 {
+            return true;
+        }
+        return false;
     }
 
     pub fn page_comment_size(&mut self) -> u32 {
@@ -158,24 +157,33 @@ impl Cookie {
         self.value = value
     }
 
-    pub fn domian_str(&self) -> String {
-        String::from_utf8_lossy(&self.domain).trim_end_matches("\0").to_string()
+    pub fn domain_str(&self) -> String {
+        String::from_utf8_lossy(&self.domain)
+            .trim_end_matches("\0")
+            .to_string()
     }
 
     pub fn value_str(&self) -> String {
-        String::from_utf8_lossy(&self.value).trim_end_matches("\0").to_string()
+        String::from_utf8_lossy(&self.value)
+            .trim_end_matches("\0")
+            .to_string()
     }
 
     pub fn name_str(&self) -> String {
-        String::from_utf8_lossy(&self.name).trim_end_matches("\0").to_string()
+        String::from_utf8_lossy(&self.name)
+            .trim_end_matches("\0")
+            .to_string()
     }
 
     pub fn comment_str(&self) -> String {
-        String::from_utf8_lossy(&self.comment).trim_end_matches("\0").to_string()
+        String::from_utf8_lossy(&self.comment)
+            .trim_end_matches("\0")
+            .to_string()
     }
 
     pub fn path_str(&self) -> String {
-        String::from_utf8_lossy(&self.path).trim_end_matches("\0").to_string()
+        String::from_utf8_lossy(&self.path)
+            .trim_end_matches("\0")
+            .to_string()
     }
-
 }

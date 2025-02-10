@@ -1,5 +1,5 @@
 ### About Binarycookies-Reader  
-binarycookies is a program for deocde .binarycookies files from Safari or WebKit.  
+binarycookies is a library for decoding .binarycookies files from Safari or WebKit.  
    
 The Safari cookies file, also known as the Safari binary cookies file (Cookies.binarycookies) format
      
@@ -28,10 +28,10 @@ fn main() {
     let mut data = Vec::new();
     let _ = target.read_to_end(&mut data).unwrap();
     let mut d = BinaryCookiesReader::from_vec(&data);
-    let _ = d.deocde().unwrap();
+    let _ = d.decode().unwrap();
     for pages in d.origin_pages() {
         for cookie in pages.cookies() {
-            println!("{} | {} | {} | {}", cookie.domian_str(), cookie.name_str(), cookie.value_str(), cookie.http_only);
+            println!("{} | {} | {} | {}", cookie.domain_str(), cookie.name_str(), cookie.value_str(), cookie.http_only);
         }
     }
 }
@@ -44,10 +44,10 @@ use binary_cookies::BinaryCookiesReader;
 fn main() {
     let target = String::from("/Users/foo/Library/HTTPStorages/boo.binarycookies");
     let mut dec = BinaryCookiesReader::new(&target).unwrap();
-    let _ = d.deocde().unwrap();
+    let _ = d.decode().unwrap();
     for pages in d.origin_pages() {
         for cookie in pages.cookies() {
-            println!("{} | {} | {} | {}", cookie.domian_str(), cookie.name_str(), cookie.value_str(), cookie.http_only);
+            println!("{} | {} | {} | {}", cookie.domain_str(), cookie.name_str(), cookie.value_str(), cookie.http_only);
         }
     }
 }

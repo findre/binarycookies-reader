@@ -129,7 +129,7 @@ impl BinaryCookiesReader {
         Ok(bits)
     }
 
-    pub fn deocde(&mut self) -> Result<(), BinaryCookieError> {
+    pub fn decode(&mut self) -> Result<(), BinaryCookieError> {
         let magic_signature = [99, 111, 111, 107];
         let next: [u8; 4] = self.read4bits()?;
         if next != magic_signature {
