@@ -1,6 +1,6 @@
 [package]
 name = "binarycookies"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 authors = ["JohnnyLeaf <fxtafreeman@163.com>"]
 description = "A package reader for Mac os cookie file"
@@ -16,4 +16,3 @@ name = "binary_cookies"
 path = "src/libs.rs"
 
 [dependencies]
-
