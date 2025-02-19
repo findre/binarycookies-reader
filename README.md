@@ -1,22 +1,28 @@
-### About Binarycookies-Reader  
-binarycookies is a library for decoding .binarycookies files from Safari or WebKit.  
-   
+### Disclaimer
+This project is intended solely for educational and technical research purposes.
+It is strictly prohibited to use this tool for illegally obtaining others' data.
+Users must ensure they have legitimate access rights to the relevant files.
+The developer shall not be held responsible for any misuse or illegal activities resulting from the use of this project.
+
+### About Binarycookies-Reader
+binarycookies is a library for decoding .binarycookies files from Safari or WebKit.
+
 The Safari cookies file, also known as the Safari binary cookies file (Cookies.binarycookies) format
-     
+
 More info: https://github.com/libyal/dtformats/blob/main/documentation/Safari%20Cookies.asciidoc
-   
-### Github
+
+### Github Address
 https://github.com/findre/binarycookies-reader
 
 ### About Errors
 - InvalidIndexOverBounds: cover index out of bounds, format error, cookie version invalid?
-- InvalidSignature: cookie file must start with 'cook' 
+- InvalidSignature: cookie file must start with 'cook'
 - InvalidStartCode: start code start with '[0x00, 0x00, 0x00, 0x00]'
 - EndCodeError
 - EndHeaderCodeError
 - DataOverSize
 - SystemIOError: when use 'new' fuction, cover io error
-   
+
 ### How to use
 #### 1. use 'from_vec' function
 ```rust
@@ -52,3 +58,9 @@ fn main() {
     }
 }
 ```
+
+### Reference
+ - `Swift`: https://github.com/interstateone/BinaryCookies
+ - `Golang`: https://github.com/cixtor/binarycookies
+ - `Python`: https://github.com/interstateone/BinaryCookies
+ - `C`: https://github.com/Tatsh/bincookie
